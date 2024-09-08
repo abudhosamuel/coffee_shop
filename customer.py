@@ -5,9 +5,9 @@ class Customer:
 
     def __init__(self, name):
         self._name = None
-        self._orders = []  # List of orders placed by the customer
-        self.name = name  # This will trigger the name setter
-        Customer._all_customers.append(self)  # Track this customer
+        self._orders = []  
+        self.name = name  
+        Customer._all_customers.append(self)  
 
     # Property for 'name' with validation
     @property
@@ -26,25 +26,25 @@ class Customer:
     def place_order(self, coffee, quantity):
         order = Order(self, coffee, quantity)  # Create a new order
         self._orders.append(order)
-        coffee.add_order(order)  # Also add this order to the coffee
+        coffee.add_order(order)  
         return order
 
-    # Method to return all orders placed by this customer
+    
     def orders(self):
         return self._orders
 
-    # Method to return all unique coffees ordered by this customer
+    
     def coffees(self):
         return list(set(order.coffee for order in self._orders))
 
-    # Method to create a new order with a given coffee and quantity
+    
     def create_order(self, coffee, quantity):
         order = Order(self, coffee, quantity)  # Create a new order with quantity
         self._orders.append(order)
         coffee.add_order(order)
         return order
 
-    # Class method to find the customer who spent the most on a specific coffee
+    
     @classmethod
     def most_aficionado(cls, coffee):
         max_spent = 0
