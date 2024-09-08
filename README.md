@@ -1,4 +1,4 @@
-Python Application
+Python Coding Challenge
 
 # Coffee Shop Domain Model
 
